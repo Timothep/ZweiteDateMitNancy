@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>City Locator</title>
+    </head>
+    <body>
+        <h1>City Locator</h1>
+       
+        @foreach (dynamic cityInfo in Model)
+        {
+            <ul>
+                <li>Zip: @cityInfo.Id</li>
+                <li>Population: @cityInfo.pop</li>
+                <li>Coordinates: @cityInfo.loc[1], @cityInfo.loc[0]</li>
+            </ul>
+        }
+       
+    </body >
+</html >

@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>City Locator</title>
+    </head>
+    <body>
+        <h1>City Locator</h1>
+
+        <ul>
+            <li>City: @Model.city</li>
+            <li>Zip: @Model.Id</li>
+            <li>State: @Model.state</li>
+            <li>Population: @Model.pop</li>
+            <li>Coordinates: @Model.loc[1], @Model.loc[0]</li>
+        </ul>
+    
+        <img src="http://maps.googleapis.com/maps/api/staticmap?center=@Model.loc[1],@Model.loc[0]&zoom=10&size=800x600&sensor=false">
+        
+    </body>
+</html>
