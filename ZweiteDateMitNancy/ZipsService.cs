@@ -10,12 +10,12 @@ namespace ZweiteDateMitNancy
     using Simple.Data.MongoDB;
     using System.Linq;
 
-    public class Module : NancyModule
+    public class ZipsService : NancyModule
     {
         private const string ConnectionString = @"mongodb://localhost:27017/zipDB";
         private readonly dynamic db = Database.Opener.OpenMongo(ConnectionString);
 
-        public Module()
+        public ZipsService()
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-GB");
 
@@ -28,7 +28,7 @@ namespace ZweiteDateMitNancy
 
             Get["/city/{name}"] = parameters =>
                 {
-                    IList<CityInfo> cityInfoList = db.zips.FindAllBy(city: parameters.name.ToString()).ToList();
+                    IList<CityInfo> cityInfoList = db.zips.FindAllBy(city: parameters.name.ToString()).ToList<CityInfo>();
                     return Negotiate.WithModel(cityInfoList)
                                     .WithView("MultipleView");
                 };
